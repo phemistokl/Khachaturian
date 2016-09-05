@@ -1,10 +1,12 @@
 export default url => {
-  return new Promise((succes, fail) => {
+  return new Promise((success, fail) => {
     const request = new XMLHttpRequest();
     request.open('GET', url, true);
 
     request.addEventListener('load', () => {
-      request.status >= 200 && request.status < 400 ? succes(requst.responseText) : fail(new Error(`Requst Failed: ${requst.statusText}`));
+      request.status >= 200 && request.status < 400
+        ? success(request.responseText)
+        : fail(new Error(`Request Failed: ${request.statusText}`));
     });
 
     request.addEventListener('error', () => {
