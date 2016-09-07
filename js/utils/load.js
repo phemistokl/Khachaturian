@@ -1,3 +1,4 @@
+// load.js с промисами
 export default url => {
   return new Promise((success, fail) => {
     const request = new XMLHttpRequest();
