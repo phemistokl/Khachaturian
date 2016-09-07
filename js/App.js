@@ -1,33 +1,13 @@
 import React from 'react';
 
-import datas from '../public/data.json';
-
-import load from './utils/load';
+import datas from './data.json';
 
 const App = React.createClass({
-  getInitialState() {
-    return {
-      data: null
-    };
-  },
-
-  componentDidMount() {
-      load(datas).then(users => {
-        this.initialData = JSON.parse(users);
-        this.setState({
-          data: this.initialData
-        });
-      });
-  },
-
   render: function() {
+    console.log(datas);
     return (
       <div className="app container-fluid">
-      <div className="row">
-        <div className="col-sm-8 col-md-9 col-lg-10">
-          {this.state.data}
-        </div>
-      </div>
+        App
       </div>
     );
   }
