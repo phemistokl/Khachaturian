@@ -1,5 +1,6 @@
 import React from 'react';
 import UserList from './components/UserList';
+import ActiveUser from './components/ActiveUser';
 
 import load from './utils/load';
 
@@ -25,14 +26,17 @@ const App = React.createClass({
     this.setState(config);
   },
 
-  render: function() {
+  render() {
     return (
       <div className="app container-fluid">
-      <div className="row">
-        <div className="col-sm-8 col-md-9 col-lg-10">
-          <UserList data={this.state.data} update={this.updateData.bind(this)} />
+        <div className="row">
+          <div className="col-sm-4 col-md-3 col-lg-2">
+            <ActiveUser data={this.state.data} active={this.state.active} />
+          </div>
+          <div className="col-sm-8 col-md-9 col-lg-10">
+            <UserList data={this.state.data} update={this.updateData.bind(this)} />
+          </div>
         </div>
-      </div>
       </div>
     );
   }
